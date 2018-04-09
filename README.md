@@ -7,7 +7,7 @@ Superset是一个灵活的BI系统，现在公司里主要打算用做测试数�
 <pre><code>
 # docker pull amancevice/superset
 </code></pre>
-4. 启动镜像(`docker run --help`指令可获取参数帮助文档)
+4. 启动镜像(`docker run --help`指令可获取参数帮助文档)
 <pre><code>
 # docker run -p 8088:8088 -v /dockerfs/superset/conf:/etc/superset -v /dockerfs/superset/data:/data  --name superset -d amancevice/superset
 </code></pre>
