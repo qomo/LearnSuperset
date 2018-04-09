@@ -1,13 +1,13 @@
 # 学习Superset  
 Superset是一个灵活的BI系统，现在公司里主要打算用做测试数据的可视化。  
-## Superset环境的搭建（docker）  
+## Superset环境的搭建（docker）  
 1. 假设已经完成[docker环境的安装](https://docs.docker.com/install/)  
 2. 在公司内需要设置代理，以便能够顺利获取到docker镜像  
 3. 拉取这个[superset镜像](https://hub.docker.com/r/amancevice/superset/)
 <pre><code>
 # docker pull amancevice/superset
 </code></pre>
-4. 启动镜像(`docker run --help`指令可获取参数帮助文档)
+4. 启动镜像(`docker run --help`指令可获取参数帮助文档)
 <pre><code>
 # docker run -p 8088:8088 -v /dockerfs/superset/conf:/etc/superset -v /dockerfs/superset/data:/data  --name superset -d amancevice/superset
 </code></pre>
@@ -16,7 +16,7 @@ Superset是一个灵活的BI系统，现在公司里主要打算用做测试数
 <pre><code>
 # docker exec -it superset bash
 </code></pre>
-6. 初始化superset环境，主要是创建管理员账户
+6. 初始化superset环境，主要是创建管理员账户
 <pre><code>
 # superset-init
 </code></pre>
@@ -29,3 +29,4 @@ Superset是一个灵活的BI系统，现在公司里主要打算用做测试数
 ## 案例XXXX数据分析  
 > 保密😁  
 
+## 开发环境搭建
