@@ -29,4 +29,21 @@ Superset是一个灵活的BI系统，现在公司里主要打算用做测试数�
 ## 案例XXXX数据分析  
 > 保密😁  
 
-## 开发环境搭建
+## 开发环境搭建(On Mac)  
+1. 下载源码  
+<pre><code>
+# git clone https://github.com/apache/incubator-superset
+</pre></code>  
+> 因为墙的原因，可能你无法clone下来源码，也可以选择在web页面下载压缩包
+
+2. 参考[官方安装指南](https://superset.incubator.apache.org/installation.html)的**Making your own build**小节编译源码  
+<pre><code>
+# assuming $SUPERSET_HOME as the root of the repo
+cd $SUPERSET_HOME/superset/assets
+yarn
+yarn run build
+cd $SUPERSET_HOME
+python setup.py install
+</code></pre>  
+
+3. 参考**Superset installation and initialization**小节初始化运行
