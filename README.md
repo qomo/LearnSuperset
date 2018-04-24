@@ -46,4 +46,118 @@ cd $SUPERSET_HOME
 python setup.py install
 </code></pre>  
 
-3. 参考**Superset installation and initialization**小节初始化运行
+3. 参考**Superset installation and initialization**小节初始化运行  
+
+## Superset目录结构  
+<pre><code>
+├── app
+│   └── static
+├── assets
+│   ├── branding
+│   ├── dist
+│   ├── images
+│   ├── node_modules
+│   ├── spec
+│   ├── src
+│   ├── stylesheets
+│   ├── vendor
+│   ├── backendSync.json
+│   ├── docs -> ../../docs/_build/html/
+│   ├── js_build.sh
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── version_info.json
+│   ├── webpack.config.js
+│   └── yarn.lock
+├── bin
+│   ├── __init__.py
+│   └── superset
+├── connectors
+│   ├── base
+│   ├── druid
+│   ├── sqla
+│   ├── __init__.py
+│   └── connector_registry.py
+├── data
+│   ├── __init__.py
+│   ├── airports.csv.gz
+│   ├── bart-lines.json.gz
+│   ├── birth_france_data_for_country_map.csv
+│   ├── birth_names.json.gz
+│   ├── countries.json.gz
+│   ├── countries.md
+│   ├── countries.py
+│   ├── energy.json.gz
+│   ├── fligth_data.csv.gz
+│   ├── multiformat_time_series.json.gz
+│   ├── paris_iris.json.gz
+│   ├── random_time_series.json.gz
+│   ├── san_francisco.csv.gz
+│   ├── sf_population.json.gz
+│   └── unicode_utf8_unixnl_test.csv
+├── db_engines
+│   ├── __init__.py
+│   └── hive.py
+├── migrations
+│   ├── versions
+│   ├── README
+│   ├── __init__.py
+│   ├── alembic.ini
+│   ├── env.py
+│   └── script.py.mako
+├── models
+│   ├── __init__.py
+│   ├── annotations.py
+│   ├── core.py
+│   ├── helpers.py
+│   └── sql_lab.py
+├── static
+│   └── assets -> ../assets
+├── templates
+│   ├── appbuilder
+│   ├── email
+│   ├── superset
+│   └── index.html
+├── translations
+│   ├── de
+│   ├── en
+│   ├── es
+│   ├── fr
+│   ├── it
+│   ├── ja
+│   ├── pt_BR
+│   ├── ru
+│   ├── zh
+│   ├── __init__.py
+│   ├── babel.cfg
+│   ├── messages.pot
+│   └── utils.py
+├── views
+│   ├── __init__.py
+│   ├── annotations.py
+│   ├── base.py
+│   ├── core.py
+│   ├── sql_lab.py
+│   └── utils.py
+├── __init__.py
+├── cache_util.py
+├── cli.py
+├── config.py
+├── dataframe.py
+├── db_engine_specs.py
+├── dict_import_export_util.py
+├── exceptions.py
+├── extract_table_names.py
+├── forms.py
+├── import_util.py
+├── jinja_context.py
+├── legacy.py
+├── security.py
+├── sql_lab.py
+├── sql_parse.py
+├── stats_logger.py
+├── utils.py
+└── viz.py
+</code></pre>
+
+## 
