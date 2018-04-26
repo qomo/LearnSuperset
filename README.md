@@ -122,7 +122,7 @@ python setup.py install
 │   ├── core.py
 │   ├── sql_lab.py
 │   └── utils.py
-├── __init__.py                 # superset的主模块，Flask app 和 appbuilder 都在这里创建
+├── __init__.py                 # superset的主模块，Flask app 和 appbuilder 都在这里创建
 ├── cache_util.py
 ├── cli.py                      # 通过Manager来管理app的启动指令
 ├── config.py                   # 配置文件
