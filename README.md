@@ -93,7 +93,8 @@ python setup.py install
 │   ├── alembic.ini
 │   ├── env.py
 │   └── script.py.mako
-├── models                      # 基于SQLSQLAlchemy定义的模型，建立ORM映射│   ├── __init__.py
+├── models                      # 基于SQLSQLAlchemy定义的模型，建立ORM映射
+│   ├── __init__.py
 │   ├── annotations.py
 │   ├── core.py
 │   ├── helpers.py
@@ -121,11 +122,11 @@ python setup.py install
 │   ├── core.py
 │   ├── sql_lab.py
 │   └── utils.py
-├── __init__.py
+├── __init__.py                 # superset的主模块，Flask app 和 appbuilder 都在这里创建
 ├── cache_util.py
-├── cli.py
+├── cli.py                      # 通过Manager来管理app的启动指令
 ├── config.py                   # 配置文件
-├── dataframe.py                # dataframe数据结构的封装
+├── dataframe.py                # dataframe数据结构的封装
 ├── db_engine_specs.py
 ├── dict_import_export_util.py
 ├── exceptions.py
@@ -141,5 +142,12 @@ python setup.py install
 ├── utils.py
 └── viz.py
 </code></pre>
+> 参考：[Appbuilder的Hello World](http://flask-appbuilder.readthedocs.io/en/latest/)  
+app = Flask(__name__)  
+app.config.from_object('config')  
+db = SQLA(app)  
+appbuilder = AppBuilder(app, db.session)
+
+
 
 ## 
