@@ -49,10 +49,11 @@ python setup.py install
 3. 参考**Superset installation and initialization**小节初始化运行  
 
 ## Superset目录结构  
+> 参考：[Superset: Just Enough](https://zhuanlan.zhihu.com/p/30562131)
 <pre><code>
 ├── app
 │   └── static
-├── assets
+├── assets                      # js jsx 等前端库
 │   ├── branding
 │   ├── dist
 │   ├── images
@@ -81,39 +82,25 @@ python setup.py install
 ├── data
 │   ├── __init__.py
 │   ├── airports.csv.gz
-│   ├── bart-lines.json.gz
-│   ├── birth_france_data_for_country_map.csv
-│   ├── birth_names.json.gz
-│   ├── countries.json.gz
-│   ├── countries.md
-│   ├── countries.py
-│   ├── energy.json.gz
-│   ├── fligth_data.csv.gz
-│   ├── multiformat_time_series.json.gz
-│   ├── paris_iris.json.gz
-│   ├── random_time_series.json.gz
-│   ├── san_francisco.csv.gz
-│   ├── sf_population.json.gz
-│   └── unicode_utf8_unixnl_test.csv
+... ...
 ├── db_engines
 │   ├── __init__.py
 │   └── hive.py
-├── migrations
+├── migrations                  # 数据库升级脚本
 │   ├── versions
 │   ├── README
 │   ├── __init__.py
 │   ├── alembic.ini
 │   ├── env.py
 │   └── script.py.mako
-├── models
-│   ├── __init__.py
+├── models                      # 基于SQLSQLAlchemy定义的模型，建立ORM映射│   ├── __init__.py
 │   ├── annotations.py
 │   ├── core.py
 │   ├── helpers.py
 │   └── sql_lab.py
 ├── static
 │   └── assets -> ../assets
-├── templates
+├── templates                   # jinjia2模板
 │   ├── appbuilder
 │   ├── email
 │   ├── superset
@@ -121,18 +108,13 @@ python setup.py install
 ├── translations
 │   ├── de
 │   ├── en
-│   ├── es
-│   ├── fr
-│   ├── it
-│   ├── ja
-│   ├── pt_BR
-│   ├── ru
+... ...
 │   ├── zh
 │   ├── __init__.py
 │   ├── babel.cfg
 │   ├── messages.pot
 │   └── utils.py
-├── views
+├── views                       # 基于Flask AppBuilder的实图
 │   ├── __init__.py
 │   ├── annotations.py
 │   ├── base.py
@@ -142,8 +124,8 @@ python setup.py install
 ├── __init__.py
 ├── cache_util.py
 ├── cli.py
-├── config.py
-├── dataframe.py
+├── config.py                   # 配置文件
+├── dataframe.py                # dataframe数据结构的封装
 ├── db_engine_specs.py
 ├── dict_import_export_util.py
 ├── exceptions.py
