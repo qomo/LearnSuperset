@@ -127,7 +127,7 @@ python setup.py install
 ├── cli.py                      # 通过Manager来管理app的启动指令
 ├── config.py                   # 配置文件
 ├── dataframe.py                # dataframe数据结构的封装
-├── db_engine_specs.py
+├── db_engine_specs.py          # Compatibility layer for different database engines
 ├── dict_import_export_util.py
 ├── exceptions.py
 ├── extract_table_names.py
@@ -140,13 +140,19 @@ python setup.py install
 ├── sql_parse.py
 ├── stats_logger.py
 ├── utils.py
-└── viz.py
+└── viz.py                      # This module contains the Visualization objects
 </code></pre>
 > 参考：[Appbuilder的Hello World](http://flask-appbuilder.readthedocs.io/en/latest/)  
 app = Flask(__name__)  
 app.config.from_object('config')  
 db = SQLA(app)  
-appbuilder = AppBuilder(app, db.session)
+appbuilder = AppBuilder(app, db.session)  
+
+> 参考：Manager的定义与注释(site-packages/Flask_Script-2.0.6-py3.6.egg/flask_script/__init__.py)  
+使用了三种添加命令或命令行控制参数的方式:
+> 1. manager.add_command
+> 2. @manager.command
+> 3. @manager.option
 
 
 
