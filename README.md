@@ -172,9 +172,9 @@ def explore(self, datasource_type=None, datasource_id=None):
     ...
     ...
     return self.render_template(
-        'superset/basic.html',                      # jinja模板路径
-        bootstrap_data=json.dumps(bootstrap_data),  # 和bootstrap相关，暂时不清楚？？？
-        entry='explore',                            # 将要调用的js文件名
+        'superset/basic.html',                      # jinja模板路径
+        bootstrap_data=json.dumps(bootstrap_data),  # 和bootstrap相关，暂时不清楚？？？
+        entry='explore',                            # 将要调用的js文件名
         title=title,                                # 标题
         standalone_mode=standalone)
 </code></pre>  
