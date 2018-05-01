@@ -154,6 +154,28 @@ appbuilder = AppBuilder(app, db.session)
 > 2. @manager.command
 > 3. @manager.option
 
+## 一个Slice的响应过程  
 
+### 主要接口  
+> superset/views/core.py    
 
-## 
+Class Superset提供了用户交互的基本视图，其中主要的接口为:  
+- @expose('/welcome') --- 欢迎界面
+- @expose('/explore/<datasource_type>/<datasource_id>/', methods=['GET', 'POST']) --- Slice页面
+- @expose('/profile/<username>/') --- 用户页面
+- @expose('/sqllab') --- SQL编辑器页面  
+- @expose('/dashboard/<dashboard_id>/') --- 看板页面
+
+这几个接口，最终都会渲染并返回一个superset/basic.html模版，如：
+<pre><code>
+def explore(self, datasource_type=None, datasource_id=None):
+    ...
+    ...
+    return self.render_template(
+        'superset/basic.html',                      # jinja模板路径
+        bootstrap_data=json.dumps(bootstrap_data),  # 和bootstrap相关，暂时不清楚？？？
+        entry='explore',                            # 将要调用的js文件名
+        title=title,                                # 标题
+        standalone_mode=standalone)
+</code></pre>  
+> dashboard渲染的是dashboard.html模板，但其也继承至basic.html
