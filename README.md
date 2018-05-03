@@ -192,11 +192,11 @@ def explore(self, datasource_type=None, datasource_id=None):
       {% endif %}
 ... ...
 ```
-entry加上'.css'/'.js'后形成新的参数传入js_manifest函数，这个函数将返回对应的css/js静态文件路径。  
+entry加上'.css'/'.js'后形成新的参数传入js_manifest函数，这个函数将返回对应的css/js静态文件路径。  
 > 在模板中使用的js_manifest函数是在superset/__init__.py中被注册的，具体实现请细看这个文件中的定义。  
 
 各css/js脚本在superset/static/assets/dist/路径下。  
-其中，js是由Npm run dev-fast命令，按superset/assets/webpack.config.js配置的js源码目录打包生成的。
+其中，js是由Npm run dev-fast命令，按superset/assets/webpack.config.js配置的js源码目录打包生成的。
 ```
 # in webpack.config.js
  entry: {
