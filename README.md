@@ -173,9 +173,40 @@ def explore(self, datasource_type=None, datasource_id=None):
     ...
     return self.render_template(
         'superset/basic.html',                      # jinja模板路径
-        bootstrap_data=json.dumps(bootstrap_data),  # 和bootstrap相关，暂时不清楚？？？
-        entry='explore',                            # 将要调用的js文件名
+        bootstrap_data=json.dumps(bootstrap_data),  # 和bootstrap相关？暂时没搞清楚？？？
+        entry='explore',                            # 指明将要加载的js/css脚本
         title=title,                                # 标题
         standalone_mode=standalone)
 </code></pre>  
-> dashboard渲染的是dashboard.html模板，但其也继承至basic.html
+> dashboard渲染的是dashboard.html模板，但其也继承至basic.html  
+### Entry  
+上一小节调用的self.render_template函数要传的参数包括模板路径basic.html，和entry。entry是basic.html模板将要使用的一个参数，在basic.html中相关内容如下：
+```
+... ...
+      {% if entry %}
+        <link rel="stylesheet" type="text/css" href="{{ js_manifest(entry + '.css') }}" />
+      {% endif %}
+      ...
+      {% if entry %}
+        <script src="{{ js_manifest(entry + '.js') }}"></script>
+      {% endif %}
+... ...
+```
+entry加上'.css'/'.js'后形成新的参数传入js_manifest函数，这个函数将返回对应的css/js静态文件路径。  
+> 在模板中使用的js_manifest函数是在superset/__init__.py中被注册的，具体实现请细看这个文件中的定义。  
+
+各css/js脚本在superset/static/assets/dist/路径下。  
+其中，js是由Npm run dev-fast命令，按superset/assets/webpack.config.js配置的js源码目录打包生成的。
+```
+# in webpack.config.js
+ entry: {
+    theme: APP_DIR + '/src/theme.js',
+    common: APP_DIR + '/src/common.js',
+    addSlice: ['babel-polyfill', APP_DIR + '/src/addSlice/index.jsx'],
+    explore: ['babel-polyfill', APP_DIR + '/src/explore/index.jsx'],
+    dashboard: ['babel-polyfill', APP_DIR + '/src/dashboard/index.jsx'],
+    sqllab: ['babel-polyfill', APP_DIR + '/src/SqlLab/index.jsx'],
+    welcome: ['babel-polyfill', APP_DIR + '/src/welcome/index.jsx'],
+    profile: ['babel-polyfill', APP_DIR + '/src/profile/index.jsx'],
+  },
+```
