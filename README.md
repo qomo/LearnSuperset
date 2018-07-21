@@ -210,3 +210,13 @@ entry加上'.css'/'.js'后形成新的参数传入js_manifest函数，这个函�
     profile: ['babel-polyfill', APP_DIR + '/src/profile/index.jsx'],
   },
 ```
+
+## FAQ  
+在win下编译，
+python setup.py build的过程中，有可能遇到/superset/static/assets/package.json文件不存在的问题
+解决方法是：
+到static目录下，通过命令
+```
+mklink /D assets ..\assets
+```
+[创建目录的软连接](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
